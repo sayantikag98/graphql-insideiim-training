@@ -1,0 +1,26 @@
+#main-div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#main-div-1{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#table-component{
+    width: 45%;
+    
+}
+
+#form-component{
+    width: 35%;
+}
+
+#header-span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
