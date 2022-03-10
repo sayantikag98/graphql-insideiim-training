@@ -1,16 +1,17 @@
-import { CreateFeedUrlInput, FeedUrlModel, FeedUrl } from "../schema/feed-url.schema";
+import { CreateFeedUrlInput, FeedUrlModel, FeedUrl, IdInput } from "../schema/feed-url.schema";
+import { User } from "../schema/user.schema";
 
 class FeedUrlService{
-    async createFeedUrl(input: CreateFeedUrlInput){
+    async createFeedUrl(input: CreateFeedUrlInput & {user: User['_id']}){
         // Call the user model to create a new user
         return FeedUrlModel.create(input);
     }
 
-    async deleteFeedUrl(id: FeedUrl["_id"]){
+    async deleteFeedUrl(id: IdInput & {user: User['_id']}){
         return FeedUrlModel.findByIdAndDelete(id);
     }
 
-    async updateFeedUrl(id: FeedUrl["_id"], feedUrl: CreateFeedUrlInput){
+    async updateFeedUrl(id: IdInput & {user: User['_id']}, feedUrl: CreateFeedUrlInput){
         return FeedUrlModel.findByIdAndUpdate(id, feedUrl, { new: true})
     }
 
@@ -18,7 +19,7 @@ class FeedUrlService{
         return FeedUrlModel.find({});
     }
 
-    async getFeedUrlById(id: FeedUrl["_id"]){
+    async getFeedUrlById(id: IdInput){
         return FeedUrlModel.findById(id);
     }
 }

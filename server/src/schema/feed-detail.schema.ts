@@ -6,7 +6,7 @@ import { Field, InputType, ObjectType } from "type-graphql";
 export class FeedDetail{
 
     @Field(() => String)
-    _id: string
+    readonly _id: string
 
 
     @Field(() => String)

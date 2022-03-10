@@ -6,7 +6,9 @@ import FeedDetailService from "../service/feed-detail.service";
 @Resolver()
 export default class FeedDetailResolver{
 
-    constructor(private feedDetailService: FeedDetailService){
+    private feedDetailService: FeedDetailService
+
+    constructor(){
         this.feedDetailService = new FeedDetailService();
     }
 
